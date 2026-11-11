@@ -1,0 +1,35 @@
+{
+ "v": 1,
+ "id": "20261111-2350-storm-a1-fix",
+ "kind": "A1",
+ "from": "swarm.1.fringe@PrompTugal.dinis",
+ "key_id": "swarm.1.fringe-dinis",
+ "requested_at": "2026-11-11T23:50:11Z",
+ "title": "A1: storm warnings, forecast, stations, tides, transport, flights on 3 model(s)",
+ "mandate": "Read the named storm datasets from the storm site's public API and answer each task's question, checked, on each named model. Nothing else.",
+ "grant": [
+  "read.web:storm-charles.promptugal.news/api/v1",
+  "call.llm:openrouter.ai (through the fringe admin/tools/llm.mjs)"
+ ],
+ "tasks": [
+  "warnings",
+  "forecast",
+  "stations",
+  "tides",
+  "transport",
+  "flights"
+ ],
+ "models": [
+  "deepseek/deepseek-v4-flash",
+  "mistralai/mistral-small-2603",
+  "meta-llama/llama-3.3-70b-instruct"
+ ],
+ "tries": 1,
+ "budget": {
+  "max_calls": 18,
+  "max_tokens_per_call": 1500,
+  "max_usd": 0.05,
+  "max_minutes": 5
+ },
+ "output": "runs/<id>/result.json (signed by a key that lives only during the run), flow-events.json, provenance.json (with a GitHub attestation)"
+}
