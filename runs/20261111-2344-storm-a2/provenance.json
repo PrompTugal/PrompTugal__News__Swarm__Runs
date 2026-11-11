@@ -1,0 +1,9 @@
+{
+ "result": "runs/20261111-2344-storm-a2/result.json",
+ "result_sha256": "eaf92610f489ac62317f580937f65b9ae07a8afdcd3c1a2c3bb102a5fae69b67",
+ "commit": "6d72d7fbde944104c911de85c3e64e69e2cd04a1",
+ "workflow_run": "https://github.com/PrompTugal/PrompTugal__News__Swarm__Runs/actions/runs/43122148416",
+ "attempt": "1",
+ "attestation": "https://github.com/PrompTugal/PrompTugal__News__Swarm__Runs/attestations/66472238",
+ "verify": "gh attestation verify runs/20261111-2344-storm-a2/result.json -R PrompTugal/PrompTugal__News__Swarm__Runs"
+}
