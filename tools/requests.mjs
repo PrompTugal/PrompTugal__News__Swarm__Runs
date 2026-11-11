@@ -130,7 +130,7 @@ async function run() {
   const { execute } = await import(path.join(ROOT, 'tools/engine.mjs'));
   const deadline = setTimeout(() => { console.error(`run: ${P.budget.max_minutes} minutes reached: stopping (budget)`); process.exit(3); }, P.budget.max_minutes * 60000);
   const result = await execute({ title: P.title, story: `Request ${id} (${P.kind}), committed by ${P.from}; the push started this GitHub Action, which ran it and committed the result.`,
-    kind: P.kind, tasks: P.tasks, models: P.models, tries: P.tries, runner: `GitHub Action for ${P.from}`, env: ENVL, account: `github-actions:${gh.GITHUB_REPOSITORY || 'local'}`,
+    kind: P.kind, tasks: P.tasks, models: P.models, tries: P.tries, runner: `run ${id} on GitHub Actions`, runnerAltitude: 'A0', env: ENVL, account: `github-actions:${gh.GITHUB_REPOSITORY || 'local'}`,
     budget: { usd: P.budget.max_usd, calls: P.budget.max_calls, sessions: 0 }, llm: path.join(fringe, 'admin/tools/llm.mjs'), hook,
     chain: [{ id: 'dinis', kind: 'person', altitude: 'P', label: 'Dinis' }, { id: 'requester', kind: 'agent', altitude: 'A3', label: P.from }, { id: 'commit', kind: 'capability', altitude: 'C', label: `commit ${sha}`, edge: 'commits' }, { id: 'action', kind: 'environment', altitude: 'E', label: 'GitHub Action', edge: 'starts' }] });
   clearTimeout(deadline);

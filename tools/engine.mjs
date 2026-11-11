@@ -59,7 +59,7 @@ export function verify(env) {
 }
 
 // ---------- the engine: one runner, some tasks, some models; A2 loops of A0 reads and A1 calls; returns a run (nodes, edges, timeline, metrics)
-export async function execute({ title, story, tasks, models, loop = true, kind = null, tries = 3, runner, env, account, chain = [], budget, maxParallel = 64, llm = path.join(ROOT, 'tools/llm.mjs'), hook = null }) {
+export async function execute({ title, story, tasks, models, loop = true, kind = null, tries = 3, runner, runnerAltitude = 'A3', env, account, chain = [], budget, maxParallel = 64, llm = path.join(ROOT, 'tools/llm.mjs'), hook = null }) {
   // kind (the Runs repo): 'A2' loops until valid, 'A1' one call per task and model, 'A0' reads only; hook(unit, phase, node, more) streams each event (flows)
   if (kind === 'A1') { loop = false; tries = 1; } if (kind === 'A0') models = [];
   const { call, credit } = await import(llm);
@@ -71,7 +71,7 @@ export async function execute({ title, story, tasks, models, loop = true, kind =
   const ev = (unit, phase, more = {}) => { live += phase === 'start' ? 1 : phase === 'end' ? -1 : 0; peak = Math.max(peak, live); timeline.push({ t: Date.now() - T0, unit, phase, ...more }); if (hook) try { hook(unit, phase, nodes.find((n) => n.id === unit), more, edges); } catch (e) { console.error('hook:', String(e.message).slice(0, 120)); } };
   // the chain above the runner: person -> swarm -> packet ... (given by the caller), then the runner itself
   let up = null; for (const c of chain) { node(c); if (up) edge(up, c.id, c.edge || 'asks'); up = c.id; }
-  const ag = node({ id: 'runner', kind: 'agent', altitude: 'A3', label: runner, env, account });
+  const ag = node({ id: 'runner', kind: runnerAltitude === 'A3' ? 'agent' : 'compute', altitude: runnerAltitude, label: runner, env, account });   // a GitHub Action is compute (A0), not an agent
   if (up) edge(up, ag, 'runs'); ev(ag, 'start');
   const or = models.length ? node({ id: 'openrouter', kind: 'provider', altitude: 'M', label: 'OpenRouter' }) : null;
   const slots = []; const gate = async (fn) => { while (slots.length >= maxParallel) await Promise.race(slots); const p = fn().finally(() => slots.splice(slots.indexOf(p), 1)); slots.push(p); return p; };
