@@ -26,7 +26,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
         with:
-          fetch-depth: 2
+          fetch-depth: 0          # the whole history, so the diff from the push's 'before' always resolves
       - uses: actions/checkout@v4
         with:
           repository: PrompTugal/PrompTugal__News__Fringe
@@ -103,8 +103,9 @@ jobs:
           path: ${{ runner.temp }}/results
       - name: Gather the results
         run: |
-          for d in "$RUNNER_TEMP"/results/run-*; do [ -d "$d" ] || continue; id=${d##*/run-}; mkdir -p "runs/$id"; cp "$d"/* "runs/$id/"; done
-          ls runs
+          : > "$RUNNER_TEMP/gathered"
+          for d in "$RUNNER_TEMP"/results/run-*; do [ -d "$d" ] || continue; id=${d##*/run-}; mkdir -p "runs/$id"; rm -f "runs/$id/provenance.json"; cp "$d"/* "runs/$id/"; echo "$id" >> "$RUNNER_TEMP/gathered"; done
+          cat "$RUNNER_TEMP/gathered"
       - id: att
         uses: actions/attest-build-provenance@v2
         with:
@@ -113,9 +114,9 @@ jobs:
         env:
           ATT: ${{ steps.att.outputs.attestation-url }}
         run: |
-          for f in runs/*/result.json; do d=$(dirname "$f"); [ -f "$d/provenance.json" ] && continue
+          while read -r id; do f="runs/$id/result.json"; d="runs/$id"; [ -f "$f" ] || continue
             node -e 'const fs=require("fs"),c=require("crypto"),[f,d]=process.argv.slice(1);const b=fs.readFileSync(f);fs.writeFileSync(d+"/provenance.json",JSON.stringify({result:f,result_sha256:c.createHash("sha256").update(b).digest("hex"),commit:process.env.GITHUB_SHA,workflow_run:process.env.GITHUB_SERVER_URL+"/"+process.env.GITHUB_REPOSITORY+"/actions/runs/"+process.env.GITHUB_RUN_ID,attempt:process.env.GITHUB_RUN_ATTEMPT,attestation:process.env.ATT||null,verify:"gh attestation verify "+f+" -R "+process.env.GITHUB_REPOSITORY},null,1)+"\n")' "$f" "$d"
-          done
+          done < "$RUNNER_TEMP/gathered"
           node tools/requests.mjs index
           node tools/gate.mjs
           git config user.name "swarm-runs[bot]"
