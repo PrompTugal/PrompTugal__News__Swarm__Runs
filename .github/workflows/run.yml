@@ -1,0 +1,126 @@
+name: swarm run
+# Every run starts with a push (architect.1's design; Dinis, 11 Nov 23:2x UTC). A signed request committed under requests/ starts
+# this workflow; the plan job checks its signature against PrompTugal__News__Fringe data/keys.json; one job per request runs it
+# (A0, A1 or A2) inside its budget, streaming flow events to Elastic swarm-flows; the commit job attests the result and commits it.
+# Secrets reach only the step that needs them, through env:, and are never printed. Never pull_request_target.
+on:
+  push:
+    branches: [dev]
+    paths: ['requests/**']
+  workflow_dispatch:
+    inputs:
+      ids:
+        description: 'request ids to (re)run, comma-separated (they must already be committed)'
+        required: true
+permissions:
+  contents: read
+concurrency:
+  group: swarm-run-${{ github.sha }}
+  cancel-in-progress: false
+jobs:
+  plan:
+    runs-on: ubuntu-latest
+    outputs:
+      matrix: ${{ steps.plan.outputs.matrix }}
+      any: ${{ steps.plan.outputs.any }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 2
+      - uses: actions/checkout@v4
+        with:
+          repository: PrompTugal/PrompTugal__News__Fringe
+          ref: dev
+          path: fringe
+          fetch-depth: 1
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - id: plan
+        name: Verify the requests in this push (A0)
+        env:
+          IDS: ${{ github.event.inputs.ids }}
+          BEFORE: ${{ github.event.before }}
+        run: |
+          if [ -n "$IDS" ]; then m=$(node tools/requests.mjs plan --keys fringe/data/keys.json --ids "$IDS"); else m=$(node tools/requests.mjs plan --keys fringe/data/keys.json --before "$BEFORE" --after "$GITHUB_SHA"); fi
+          echo "matrix=$m" >> "$GITHUB_OUTPUT"
+          if [ "$m" = '{"include":[]}' ]; then echo "any=no" >> "$GITHUB_OUTPUT"; else echo "any=yes" >> "$GITHUB_OUTPUT"; fi
+  run:
+    needs: plan
+    if: needs.plan.outputs.any == 'yes'
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      max-parallel: 20
+      matrix: ${{ fromJson(needs.plan.outputs.matrix) }}
+    name: run ${{ matrix.id }} (${{ matrix.kind }})
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+      - uses: actions/checkout@v4
+        with:
+          repository: PrompTugal/PrompTugal__News__Fringe
+          ref: dev
+          path: fringe
+          fetch-depth: 1
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Run the request
+        env:
+          OPEN_ROUTER_KEY: ${{ secrets.OPEN_ROUTER_KEY }}
+          ELASTIC_URL: ${{ vars.ELASTIC_URL || 'https://my-observability-deployment-cd4ce8.es.us-central1.gcp.cloud.es.io' }}
+          ELASTIC_CLOUD: ${{ secrets.ELASTIC_CLOUD }}
+          LLM_LEDGER_DIR: ${{ runner.temp }}/ledger
+          LLM_RAW_DIR: ${{ runner.temp }}/raw
+          FLOW_ENV: R8 GitHub Actions, PrompTugal__News__Swarm__Runs
+        run: node tools/requests.mjs run --id "${{ matrix.id }}" --fringe fringe
+      - uses: actions/upload-artifact@v4
+        with:
+          name: run-${{ matrix.id }}
+          path: runs/${{ matrix.id }}/
+          retention-days: 7
+  commit:
+    needs: [plan, run]
+    if: always() && needs.plan.outputs.any == 'yes'
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      id-token: write
+      attestations: write
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: dev
+          fetch-depth: 1
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - uses: actions/download-artifact@v4
+        with:
+          path: ${{ runner.temp }}/results
+      - name: Gather the results
+        run: |
+          for d in "$RUNNER_TEMP"/results/run-*; do [ -d "$d" ] || continue; id=${d##*/run-}; mkdir -p "runs/$id"; cp "$d"/* "runs/$id/"; done
+          ls runs
+      - id: att
+        uses: actions/attest-build-provenance@v2
+        with:
+          subject-path: 'runs/*/result.json'
+      - name: Provenance, index, gate, commit
+        env:
+          ATT: ${{ steps.att.outputs.attestation-url }}
+        run: |
+          for f in runs/*/result.json; do d=$(dirname "$f"); [ -f "$d/provenance.json" ] && continue
+            node -e 'const fs=require("fs"),c=require("crypto"),[f,d]=process.argv.slice(1);const b=fs.readFileSync(f);fs.writeFileSync(d+"/provenance.json",JSON.stringify({result:f,result_sha256:c.createHash("sha256").update(b).digest("hex"),commit:process.env.GITHUB_SHA,workflow_run:process.env.GITHUB_SERVER_URL+"/"+process.env.GITHUB_REPOSITORY+"/actions/runs/"+process.env.GITHUB_RUN_ID,attempt:process.env.GITHUB_RUN_ATTEMPT,attestation:process.env.ATT||null,verify:"gh attestation verify "+f+" -R "+process.env.GITHUB_REPOSITORY},null,1)+"\n")' "$f" "$d"
+          done
+          node tools/requests.mjs index
+          node tools/gate.mjs
+          git config user.name "swarm-runs[bot]"
+          git config user.email "swarm-runs@users.noreply.github.com"
+          git add runs
+          git diff --cached --quiet && { echo "nothing to commit"; exit 0; }
+          git commit -m "swarm-runs: results for ${GITHUB_SHA::12} (run ${GITHUB_RUN_ID})" -m "Agent: swarm-runs (GitHub Action)" -m "Issue: WS-215" -m "For: swarm.1.fringe@PrompTugal.dinis" -m "Run: ${GITHUB_SERVER_URL}/${GITHUB_REPOSITORY}/actions/runs/${GITHUB_RUN_ID}"
+          for i in 1 2 3; do git pull --rebase origin dev && git push origin HEAD:dev && break; sleep 3; done
