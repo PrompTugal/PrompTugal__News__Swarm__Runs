@@ -86,7 +86,7 @@ export async function execute({ title, story, tasks, models, loop = true, kind =
   }
   async function ask(parent, tid, model, input, attempt) {
     const t = TASKS[tid], key = identity('A1', `LLM call ${tid} ${short(model)} #${attempt} by ${runner}`);
-    const u = node({ id: `${parent}/call#${attempt}`, kind: 'llm-call', altitude: 'A1', label: `${short(model)} #${attempt}`, model, key_fp: key.fp });
+    const u = node({ id: `${parent}/call:${short(model)}#${attempt}`, kind: 'llm-call', altitude: 'A1', label: `${short(model)} #${attempt}`, model, key_fp: key.fp });
     edge(parent, u, 'calls'); edge(u, or, 'via'); ev(u, 'start');
     if (budget && spent >= budget.usd) { ev(u, 'end', { valid: false, refused: 'budget' }); return { unit: u, task: tid, model, valid: false, status: 'refused_budget', tokens_in: 0, tokens_out: 0, cost_usd: 0, latency_ms: 0 }; }
     const prompt = `From this public storm data (source: ${STORM}${t.dataset}), answer: ${t.ask}.\nReply with JSON only: {"headline": "<one sentence, at most 160 characters, facts from the data only>", "status": "normal" | "disrupted" | "warning" | "unknown"}.\nDATA (first 6000 characters):\n${input.slice(0, 6000)}`;
