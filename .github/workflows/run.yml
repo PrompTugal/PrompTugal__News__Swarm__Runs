@@ -118,6 +118,7 @@ jobs:
             node -e 'const fs=require("fs"),c=require("crypto"),[f,d]=process.argv.slice(1);const b=fs.readFileSync(f);fs.writeFileSync(d+"/provenance.json",JSON.stringify({result:f,result_sha256:c.createHash("sha256").update(b).digest("hex"),commit:process.env.GITHUB_SHA,workflow_run:process.env.GITHUB_SERVER_URL+"/"+process.env.GITHUB_REPOSITORY+"/actions/runs/"+process.env.GITHUB_RUN_ID,attempt:process.env.GITHUB_RUN_ATTEMPT,attestation:process.env.ATT||null,verify:"gh attestation verify "+f+" -R "+process.env.GITHUB_REPOSITORY},null,1)+"\n")' "$f" "$d"
           done < "$RUNNER_TEMP/gathered"
           node tools/requests.mjs index
+          node tools/summary.mjs
           node tools/gate.mjs
           git config user.name "swarm-runs[bot]"
           git config user.email "swarm-runs@users.noreply.github.com"
