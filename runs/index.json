@@ -1,32 +1,45 @@
 {
  "about": "Every run of a committed request: one push, one GitHub Action, one signed result. The swarm site reads this file.",
- "updated": "2026-11-11T23:46:06Z",
+ "updated": "2026-11-11T23:51:39Z",
  "runs": [
   {
    "file": "20261111-2344-storm-a1/result.json",
-   "id": "20261111-2344-storm-a1@6d72d7fbde94#43122148416.1",
+   "id": "20261111-2344-storm-a1@15bf6730a3de#43122829324.1",
    "request": "20261111-2344-storm-a1",
    "kind": "A1",
    "requester": "swarm.1.fringe@PrompTugal.dinis",
-   "commit": "6d72d7fbde944104c911de85c3e64e69e2cd04a1",
-   "run_url": "https://github.com/PrompTugal/PrompTugal__News__Swarm__Runs/actions/runs/43122148416",
+   "commit": "15bf6730a3de22ba6645a08ca1cd1ffc2bf225a9",
+   "run_url": "https://github.com/PrompTugal/PrompTugal__News__Swarm__Runs/actions/runs/43122829324",
    "llm_calls": 18,
-   "valid_calls": 18,
-   "openrouter_usd": 0.006894,
-   "at": "2026-11-11T23:44:59Z"
+   "valid_calls": 17,
+   "openrouter_usd": 0.006859,
+   "at": "2026-11-11T23:50:35Z"
   },
   {
    "file": "20261111-2344-storm-a2/result.json",
-   "id": "20261111-2344-storm-a2@6d72d7fbde94#43122148416.1",
+   "id": "20261111-2344-storm-a2@15bf6730a3de#43122829324.1",
    "request": "20261111-2344-storm-a2",
    "kind": "A2",
    "requester": "swarm.1.fringe@PrompTugal.dinis",
-   "commit": "6d72d7fbde944104c911de85c3e64e69e2cd04a1",
-   "run_url": "https://github.com/PrompTugal/PrompTugal__News__Swarm__Runs/actions/runs/43122148416",
+   "commit": "15bf6730a3de22ba6645a08ca1cd1ffc2bf225a9",
+   "run_url": "https://github.com/PrompTugal/PrompTugal__News__Swarm__Runs/actions/runs/43122829324",
    "llm_calls": 37,
    "valid_calls": 19,
-   "openrouter_usd": 0.012178,
-   "at": "2026-11-11T23:44:59Z"
+   "openrouter_usd": 0.011741,
+   "at": "2026-11-11T23:50:35Z"
+  },
+  {
+   "file": "20261111-2350-storm-a1-fix/result.json",
+   "id": "20261111-2350-storm-a1-fix@15bf6730a3de#43122829324.1",
+   "request": "20261111-2350-storm-a1-fix",
+   "kind": "A1",
+   "requester": "swarm.1.fringe@PrompTugal.dinis",
+   "commit": "15bf6730a3de22ba6645a08ca1cd1ffc2bf225a9",
+   "run_url": "https://github.com/PrompTugal/PrompTugal__News__Swarm__Runs/actions/runs/43122829324",
+   "llm_calls": 18,
+   "valid_calls": 15,
+   "openrouter_usd": 0.007683,
+   "at": "2026-11-11T23:50:34Z"
   }
  ]
 }
