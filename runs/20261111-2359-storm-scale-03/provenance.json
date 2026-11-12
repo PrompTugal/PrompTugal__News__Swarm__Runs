@@ -1,0 +1,9 @@
+{
+ "result": "runs/20261111-2359-storm-scale-03/result.json",
+ "result_sha256": "ccc2ee0d9e9a42351582b12d511d73d4d7bb9b84d1be8622f0cb2e8bf116fef9",
+ "commit": "dbcca7b099dc4c6117fa6e77ed488b67c2e8f6bd",
+ "workflow_run": "https://github.com/PrompTugal/PrompTugal__News__Swarm__Runs/actions/runs/43123984802",
+ "attempt": "1",
+ "attestation": "https://github.com/PrompTugal/PrompTugal__News__Swarm__Runs/attestations/66475827",
+ "verify": "gh attestation verify runs/20261111-2359-storm-scale-03/result.json -R PrompTugal/PrompTugal__News__Swarm__Runs"
+}

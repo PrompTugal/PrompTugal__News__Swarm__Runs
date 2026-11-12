@@ -1,0 +1,1464 @@
+{
+ "body": {
+  "v": 1,
+  "title": "A1: storm warnings, forecast, stations, tides, transport, flights on 2 model(s) (3 of 12)",
+  "story": "Request 20261111-2359-storm-scale-03 (A1), committed by swarm.1.fringe@PrompTugal.dinis; the push started this GitHub Action, which ran it and committed the result.",
+  "by": "run 20261111-2359-storm-scale-03 on GitHub Actions",
+  "issue": "WS-215",
+  "environment": {
+   "label": "R8 GitHub Actions, PrompTugal__News__Swarm__Runs",
+   "account": "github-actions:PrompTugal/PrompTugal__News__Swarm__Runs"
+  },
+  "started_at": "2026-11-12T00:00:08Z",
+  "wall_ms": 34795,
+  "budget": {
+   "usd": 0.02,
+   "calls": 12,
+   "sessions": 0
+  },
+  "credit_before_usd": 70.19,
+  "source": {
+   "workload": "the storm site's scheduled datasets, read over its public API",
+   "url": "https://storm-charles.promptugal.news/api/v1/2026-11-10-storm-charles/"
+  },
+  "metrics": {
+   "units": {
+    "P": 1,
+    "A3": 1,
+    "C": 1,
+    "E": 1,
+    "A0": 19,
+    "M": 1,
+    "D": 6,
+    "A1": 12
+   },
+   "agents": 1,
+   "loops": 0,
+   "llm_calls": 12,
+   "compute": 19,
+   "peak_concurrency": 12,
+   "valid_calls": 12,
+   "tokens_in": 29906,
+   "tokens_out": 3267,
+   "openrouter_usd": 0.002316,
+   "potential_claude_usd": {
+    "claude-haiku-5.5": 0.004624,
+    "claude-sonnet-5.5": 0.092482,
+    "claude-opus-5.5": 0.184964
+   },
+   "models": [
+    "mistralai/mistral-small-2603",
+    "deepseek/deepseek-v4-flash"
+   ],
+   "latency_ms_p50": 1328,
+   "not_measured": "the A3 runner's own Claude tokens (its Claude Code session): not exposed to the run"
+  },
+  "consensus": {
+   "warnings": {
+    "tally": {
+     "warning": 2
+    },
+    "verdict": "warning",
+    "agree": 2,
+    "of": 2
+   },
+   "forecast": {
+    "tally": {
+     "normal": 2
+    },
+    "verdict": "normal",
+    "agree": 2,
+    "of": 2
+   },
+   "stations": {
+    "tally": {
+     "unknown": 1,
+     "normal": 1
+    },
+    "verdict": "unknown",
+    "agree": 1,
+    "of": 2
+   },
+   "tides": {
+    "tally": {
+     "normal": 2
+    },
+    "verdict": "normal",
+    "agree": 2,
+    "of": 2
+   },
+   "transport": {
+    "tally": {
+     "disrupted": 2
+    },
+    "verdict": "disrupted",
+    "agree": 2,
+    "of": 2
+   },
+   "flights": {
+    "tally": {
+     "disrupted": 2
+    },
+    "verdict": "disrupted",
+    "agree": 2,
+    "of": 2
+   }
+  },
+  "calls": [
+   {
+    "unit": "runner:stations/call:mistral-small-2603#1",
+    "task": "stations",
+    "model": "mistralai/mistral-small-2603",
+    "served": "mistralai/mistral-small-2603",
+    "status": "ok",
+    "valid": true,
+    "verdict": "unknown",
+    "tokens_in": 2966,
+    "tokens_out": 27,
+    "cost_usd": 0.00006932574,
+    "latency_ms": 454,
+    "ledger_id": "20261112T000008-5ee60941",
+    "answer_sha256": "4dbd77c1408415de",
+    "answer_chars": 105,
+    "signed": {
+     "body": {
+      "task": "stations",
+      "model": "mistralai/mistral-small-2603",
+      "valid": true,
+      "tokens_in": 2966,
+      "tokens_out": 27,
+      "cost_usd": 0.00006932574,
+      "answer_sha256": "4dbd77c1408415de",
+      "prompt_sha256": "91073be4df9b2499"
+     },
+     "by": {
+      "altitude": "A1",
+      "name": "LLM call stations mistral-small-2603 #1 by run 20261111-2359-storm-scale-03 on GitHub Actions",
+      "fp": "sha256:7f80fca30486461d",
+      "pub": "MCowBQYDK2VwAyEAyp5pQzD1e8OH1tdFTvt79f/Feu3Gy0/KZQx7UaU7Ffo=",
+      "signed_at": "2026-11-12T00:00:09Z"
+     },
+     "sig": "WDpBpkg/qpEyVZQSK6biyyxFASVmldAjI6NsO1l4iPN14tkQtjnAj7UCT/W/k4CMJ1ePhraqlqyaFczSwIzGDQ=="
+    }
+   },
+   {
+    "unit": "runner:tides/call:mistral-small-2603#1",
+    "task": "tides",
+    "model": "mistralai/mistral-small-2603",
+    "served": "mistralai/mistral-small-2603",
+    "status": "ok",
+    "valid": true,
+    "verdict": "normal",
+    "tokens_in": 2911,
+    "tokens_out": 52,
+    "cost_usd": 0.00009549441,
+    "latency_ms": 606,
+    "ledger_id": "20261112T000008-d16a27ee",
+    "answer_sha256": "5fc48e37c6f0dba7",
+    "answer_chars": 139,
+    "signed": {
+     "body": {
+      "task": "tides",
+      "model": "mistralai/mistral-small-2603",
+      "valid": true,
+      "tokens_in": 2911,
+      "tokens_out": 52,
+      "cost_usd": 0.00009549441,
+      "answer_sha256": "5fc48e37c6f0dba7",
+      "prompt_sha256": "207f592af026ac07"
+     },
+     "by": {
+      "altitude": "A1",
+      "name": "LLM call tides mistral-small-2603 #1 by run 20261111-2359-storm-scale-03 on GitHub Actions",
+      "fp": "sha256:87a66c17e7d193bb",
+      "pub": "MCowBQYDK2VwAyEAY8SCxDWElLqUnlF44lSW4VpRaawvl/vWsf0hWwjaM+g=",
+      "signed_at": "2026-11-12T00:00:09Z"
+     },
+     "sig": "IAPK/EAT+z7dIuN8Xq0hpvKB/97gCiJGxTRTDk9OwNt/fzPVMpK80ofaQw+6aatm33vrEO2OWqrHur8MdJmBCg=="
+    }
+   },
+   {
+    "unit": "runner:warnings/call:mistral-small-2603#1",
+    "task": "warnings",
+    "model": "mistralai/mistral-small-2603",
+    "served": "mistralai/mistral-small-2603",
+    "status": "ok",
+    "valid": true,
+    "verdict": "warning",
+    "tokens_in": 2554,
+    "tokens_out": 45,
+    "cost_usd": 0.00007494498,
+    "latency_ms": 709,
+    "ledger_id": "20261112T000008-50e637ff",
+    "answer_sha256": "a1aa2defeaec0533",
+    "answer_chars": 119,
+    "signed": {
+     "body": {
+      "task": "warnings",
+      "model": "mistralai/mistral-small-2603",
+      "valid": true,
+      "tokens_in": 2554,
+      "tokens_out": 45,
+      "cost_usd": 0.00007494498,
+      "answer_sha256": "a1aa2defeaec0533",
+      "prompt_sha256": "e0ee3325c2a4a8e8"
+     },
+     "by": {
+      "altitude": "A1",
+      "name": "LLM call warnings mistral-small-2603 #1 by run 20261111-2359-storm-scale-03 on GitHub Actions",
+      "fp": "sha256:b0020a2f941d06cc",
+      "pub": "MCowBQYDK2VwAyEAD1PJtu1P7Y87efg7WUSqEkdbNuzNNpcwwYcTQicoJs8=",
+      "signed_at": "2026-11-12T00:00:09Z"
+     },
+     "sig": "CN00TaWtGMsVjjQWQCCyVqT6Khkbs/2+uUP64YyFL9HiLdzqU+khJpIQ3FcLRpUInC5aJsLP5q2l+EtcUCAiBw=="
+    }
+   },
+   {
+    "unit": "runner:forecast/call:mistral-small-2603#1",
+    "task": "forecast",
+    "model": "mistralai/mistral-small-2603",
+    "served": "mistralai/mistral-small-2603",
+    "status": "ok",
+    "valid": true,
+    "verdict": "normal",
+    "tokens_in": 2451,
+    "tokens_out": 33,
+    "cost_usd": 0.00006439257,
+    "latency_ms": 711,
+    "ledger_id": "20261112T000008-e8e18660",
+    "answer_sha256": "4df02afb19ddf2db",
+    "answer_chars": 121,
+    "signed": {
+     "body": {
+      "task": "forecast",
+      "model": "mistralai/mistral-small-2603",
+      "valid": true,
+      "tokens_in": 2451,
+      "tokens_out": 33,
+      "cost_usd": 0.00006439257,
+      "answer_sha256": "4df02afb19ddf2db",
+      "prompt_sha256": "2b74e4dd7cf299c3"
+     },
+     "by": {
+      "altitude": "A1",
+      "name": "LLM call forecast mistral-small-2603 #1 by run 20261111-2359-storm-scale-03 on GitHub Actions",
+      "fp": "sha256:62010dc4681f9ee9",
+      "pub": "MCowBQYDK2VwAyEAjBH5GlPQgst6Gm79C8d7w8BZBcGLg/B/99joLSw1p+c=",
+      "signed_at": "2026-11-12T00:00:09Z"
+     },
+     "sig": "EE7Ko5IATVNO+tgrG2I+pw5l2sAptZnrfj9xd/xWMJt3L+uvNSau7poM9+ASsLPjvBQaVoYe/aERo72ZXsF8Dw=="
+    }
+   },
+   {
+    "unit": "runner:flights/call:mistral-small-2603#1",
+    "task": "flights",
+    "model": "mistralai/mistral-small-2603",
+    "served": "mistralai/mistral-small-2603",
+    "status": "ok",
+    "valid": true,
+    "verdict": "disrupted",
+    "tokens_in": 2241,
+    "tokens_out": 38,
+    "cost_usd": 0.00006393519,
+    "latency_ms": 868,
+    "ledger_id": "20261112T000008-9d68c8b2",
+    "answer_sha256": "7c49b2d507814c43",
+    "answer_chars": 122,
+    "signed": {
+     "body": {
+      "task": "flights",
+      "model": "mistralai/mistral-small-2603",
+      "valid": true,
+      "tokens_in": 2241,
+      "tokens_out": 38,
+      "cost_usd": 0.00006393519,
+      "answer_sha256": "7c49b2d507814c43",
+      "prompt_sha256": "685599605211fc88"
+     },
+     "by": {
+      "altitude": "A1",
+      "name": "LLM call flights mistral-small-2603 #1 by run 20261111-2359-storm-scale-03 on GitHub Actions",
+      "fp": "sha256:28ff54ba5a4030d5",
+      "pub": "MCowBQYDK2VwAyEAEYsnXseJxa2nqzLbfb2vhRc/HI9asrXz3LPHzxXo34I=",
+      "signed_at": "2026-11-12T00:00:09Z"
+     },
+     "sig": "+o5zsTJDGYrqpvG/9qFt3uXvCHqaE8i12ky20P9AZ0dAYCO5E3rGyvLgOF41D9a0VaKXaTIBN5ILE4eHt5qcDg=="
+    }
+   },
+   {
+    "unit": "runner:transport/call:mistral-small-2603#1",
+    "task": "transport",
+    "model": "mistralai/mistral-small-2603",
+    "served": "mistralai/mistral-small-2603",
+    "status": "ok",
+    "valid": true,
+    "verdict": "disrupted",
+    "tokens_in": 2693,
+    "tokens_out": 43,
+    "cost_usd": 0.00007282143,
+    "latency_ms": 855,
+    "ledger_id": "20261112T000008-333166a0",
+    "answer_sha256": "fd8fa42d6d6bd9d1",
+    "answer_chars": 165,
+    "signed": {
+     "body": {
+      "task": "transport",
+      "model": "mistralai/mistral-small-2603",
+      "valid": true,
+      "tokens_in": 2693,
+      "tokens_out": 43,
+      "cost_usd": 0.00007282143,
+      "answer_sha256": "fd8fa42d6d6bd9d1",
+      "prompt_sha256": "181b97e428f9c6c3"
+     },
+     "by": {
+      "altitude": "A1",
+      "name": "LLM call transport mistral-small-2603 #1 by run 20261111-2359-storm-scale-03 on GitHub Actions",
+      "fp": "sha256:ce282a3ef3042def",
+      "pub": "MCowBQYDK2VwAyEAEUTYwV/ThwqYd3Uo/0RF/xOQaOGfjCVaXInKOcSNyak=",
+      "signed_at": "2026-11-12T00:00:09Z"
+     },
+     "sig": "+ZZxGVsVsobaV7W1Q3SzSKkIp0e/0PBSSXBgtD+tq9rAKUOK/M0eFGXbCNPwZF6vRafJGiixv4m13jqOkb8qAw=="
+    }
+   },
+   {
+    "unit": "runner:stations/call:deepseek-v4-flash#1",
+    "task": "stations",
+    "model": "deepseek/deepseek-v4-flash",
+    "served": "deepseek/deepseek-v4-flash",
+    "status": "ok",
+    "valid": true,
+    "verdict": "normal",
+    "tokens_in": 2651,
+    "tokens_out": 47,
+    "cost_usd": 0.0003228489,
+    "latency_ms": 1328,
+    "ledger_id": "20261112T000008-ba32f15e",
+    "answer_sha256": "814ef3bd99721080",
+    "answer_chars": 150,
+    "signed": {
+     "body": {
+      "task": "stations",
+      "model": "deepseek/deepseek-v4-flash",
+      "valid": true,
+      "tokens_in": 2651,
+      "tokens_out": 47,
+      "cost_usd": 0.0003228489,
+      "answer_sha256": "814ef3bd99721080",
+      "prompt_sha256": "91073be4df9b2499"
+     },
+     "by": {
+      "altitude": "A1",
+      "name": "LLM call stations deepseek-v4-flash #1 by run 20261111-2359-storm-scale-03 on GitHub Actions",
+      "fp": "sha256:4df0e8d74e32eb83",
+      "pub": "MCowBQYDK2VwAyEAQloSkychPdIz3Q5ipLFfcatfFMFiDzQqr5CFBS1r5AY=",
+      "signed_at": "2026-11-12T00:00:10Z"
+     },
+     "sig": "cO54kT3/YpAdiLKpATXfNqTkRuC1Z1aoMeBe08T2S/WGrNkVeNWOLvKSPVfyORaJ/V2AEJxcnpt9u9gBHSsPBQ=="
+    }
+   },
+   {
+    "unit": "runner:transport/call:deepseek-v4-flash#1",
+    "task": "transport",
+    "model": "deepseek/deepseek-v4-flash",
+    "served": "deepseek/deepseek-v4-flash",
+    "status": "ok",
+    "valid": true,
+    "verdict": "disrupted",
+    "tokens_in": 2300,
+    "tokens_out": 36,
+    "cost_usd": 0.00006536376,
+    "latency_ms": 1807,
+    "ledger_id": "20261112T000008-a0989637",
+    "answer_sha256": "e675c76bf396a7ba",
+    "answer_chars": 143,
+    "signed": {
+     "body": {
+      "task": "transport",
+      "model": "deepseek/deepseek-v4-flash",
+      "valid": true,
+      "tokens_in": 2300,
+      "tokens_out": 36,
+      "cost_usd": 0.00006536376,
+      "answer_sha256": "e675c76bf396a7ba",
+      "prompt_sha256": "181b97e428f9c6c3"
+     },
+     "by": {
+      "altitude": "A1",
+      "name": "LLM call transport deepseek-v4-flash #1 by run 20261111-2359-storm-scale-03 on GitHub Actions",
+      "fp": "sha256:18eac7e6b2554d90",
+      "pub": "MCowBQYDK2VwAyEA3dlJLvQMjdg6jOCOnwFUgttHTIPvC/q9rmb+HLeHz/Q=",
+      "signed_at": "2026-11-12T00:00:10Z"
+     },
+     "sig": "rAjjs0x5qr1sr7oE4qQZy8UsVPbkk0ssgg3aEmKIS7MdjOO9pGUTzUglg5vK2aL6qCTovBRTAFORfzV2SfgRCQ=="
+    }
+   },
+   {
+    "unit": "runner:flights/call:deepseek-v4-flash#1",
+    "task": "flights",
+    "model": "deepseek/deepseek-v4-flash",
+    "served": "deepseek/deepseek-v4-flash",
+    "status": "ok",
+    "valid": true,
+    "verdict": "disrupted",
+    "tokens_in": 2062,
+    "tokens_out": 48,
+    "cost_usd": 0.00006454404,
+    "latency_ms": 2071,
+    "ledger_id": "20261112T000008-607c2ffa",
+    "answer_sha256": "7a52fe26a97bb53a",
+    "answer_chars": 170,
+    "signed": {
+     "body": {
+      "task": "flights",
+      "model": "deepseek/deepseek-v4-flash",
+      "valid": true,
+      "tokens_in": 2062,
+      "tokens_out": 48,
+      "cost_usd": 0.00006454404,
+      "answer_sha256": "7a52fe26a97bb53a",
+      "prompt_sha256": "685599605211fc88"
+     },
+     "by": {
+      "altitude": "A1",
+      "name": "LLM call flights deepseek-v4-flash #1 by run 20261111-2359-storm-scale-03 on GitHub Actions",
+      "fp": "sha256:3176748b1853498e",
+      "pub": "MCowBQYDK2VwAyEAMN+CUdBM53HvBYsw8lWDNQNhqiudcnGBmd+HUaDbQxA=",
+      "signed_at": "2026-11-12T00:00:10Z"
+     },
+     "sig": "D1j8wQn5ss+mOP620YUt1SETGbfFYuFYgWt1gNpgSmt8EpUkJMKBhpYYO6Oko3p8aOPSbhI8qw1zb6TXKsxmBA=="
+    }
+   },
+   {
+    "unit": "runner:warnings/call:deepseek-v4-flash#1",
+    "task": "warnings",
+    "model": "deepseek/deepseek-v4-flash",
+    "served": "deepseek/deepseek-v4-flash",
+    "status": "ok",
+    "valid": true,
+    "verdict": "warning",
+    "tokens_in": 2296,
+    "tokens_out": 676,
+    "cost_usd": 0.0005056128,
+    "latency_ms": 5128,
+    "ledger_id": "20261112T000008-4a437e3b",
+    "answer_sha256": "e2caf145d18af0d7",
+    "answer_chars": 121,
+    "signed": {
+     "body": {
+      "task": "warnings",
+      "model": "deepseek/deepseek-v4-flash",
+      "valid": true,
+      "tokens_in": 2296,
+      "tokens_out": 676,
+      "cost_usd": 0.0005056128,
+      "answer_sha256": "e2caf145d18af0d7",
+      "prompt_sha256": "e0ee3325c2a4a8e8"
+     },
+     "by": {
+      "altitude": "A1",
+      "name": "LLM call warnings deepseek-v4-flash #1 by run 20261111-2359-storm-scale-03 on GitHub Actions",
+      "fp": "sha256:2deabd3c6de3f94a",
+      "pub": "MCowBQYDK2VwAyEANpavgSbOzC8aENM+z9nbYJPR617wBRYlUTVOi/oT0VM=",
+      "signed_at": "2026-11-12T00:00:13Z"
+     },
+     "sig": "rPPgBp8OXMdzGlzIUkrhAT7odh7RlRt03ZZviW+RtEP9HnoJDFvab1cZ/hvkBzMv/BHC18azZDxqHKB1rQefAw=="
+    }
+   },
+   {
+    "unit": "runner:tides/call:deepseek-v4-flash#1",
+    "task": "tides",
+    "model": "deepseek/deepseek-v4-flash",
+    "served": "deepseek/deepseek-v4-flash",
+    "status": "ok",
+    "valid": true,
+    "verdict": "normal",
+    "tokens_in": 2478,
+    "tokens_out": 991,
+    "cost_usd": 0.000618156,
+    "latency_ms": 15991,
+    "ledger_id": "20261112T000008-a082b4dc",
+    "answer_sha256": "bddeed8c34d55891",
+    "answer_chars": 130,
+    "signed": {
+     "body": {
+      "task": "tides",
+      "model": "deepseek/deepseek-v4-flash",
+      "valid": true,
+      "tokens_in": 2478,
+      "tokens_out": 991,
+      "cost_usd": 0.000618156,
+      "answer_sha256": "bddeed8c34d55891",
+      "prompt_sha256": "207f592af026ac07"
+     },
+     "by": {
+      "altitude": "A1",
+      "name": "LLM call tides deepseek-v4-flash #1 by run 20261111-2359-storm-scale-03 on GitHub Actions",
+      "fp": "sha256:6f9c257f417cc6fb",
+      "pub": "MCowBQYDK2VwAyEA2yHuIEFuuMRwid9WEQdPEVG2+8c5IRGCuhbPTFMELrw=",
+      "signed_at": "2026-11-12T00:00:24Z"
+     },
+     "sig": "i/qDCvowMgShK3TG1+cMrmLgrTBZO172x9g382GNKWrFemjLGYC5A2/WU4e5qw4JeUgc3Oi7W8eyYhMe6CwACQ=="
+    }
+   },
+   {
+    "unit": "runner:forecast/call:deepseek-v4-flash#1",
+    "task": "forecast",
+    "model": "deepseek/deepseek-v4-flash",
+    "served": "deepseek/deepseek-v4-flash",
+    "status": "ok",
+    "valid": true,
+    "verdict": "normal",
+    "tokens_in": 2303,
+    "tokens_out": 1231,
+    "cost_usd": 0.000298723887,
+    "latency_ms": 34442,
+    "ledger_id": "20261112T000008-574c730f",
+    "answer_sha256": "50b39bf1f844a42f",
+    "answer_chars": 101,
+    "signed": {
+     "body": {
+      "task": "forecast",
+      "model": "deepseek/deepseek-v4-flash",
+      "valid": true,
+      "tokens_in": 2303,
+      "tokens_out": 1231,
+      "cost_usd": 0.000298723887,
+      "answer_sha256": "50b39bf1f844a42f",
+      "prompt_sha256": "2b74e4dd7cf299c3"
+     },
+     "by": {
+      "altitude": "A1",
+      "name": "LLM call forecast deepseek-v4-flash #1 by run 20261111-2359-storm-scale-03 on GitHub Actions",
+      "fp": "sha256:56a5ff76df2373e5",
+      "pub": "MCowBQYDK2VwAyEAtQW5Ahn9T8aGMrWr234yx1VqxuqaDkRRlNuNAU5fyzI=",
+      "signed_at": "2026-11-12T00:00:43Z"
+     },
+     "sig": "0L04hp/u5hsoYJGKuaTkhdQyAXM58sGFYt5nrHK3S15mERt0zrxMI17CD83Og5TpKOsBHqYl6RBOmCsxeV6XCw=="
+    }
+   }
+  ],
+  "nodes": [
+   {
+    "id": "dinis",
+    "kind": "person",
+    "altitude": "P",
+    "label": "Dinis"
+   },
+   {
+    "id": "requester",
+    "kind": "agent",
+    "altitude": "A3",
+    "label": "swarm.1.fringe@PrompTugal.dinis"
+   },
+   {
+    "id": "commit",
+    "kind": "capability",
+    "altitude": "C",
+    "label": "commit dbcca7b099dc",
+    "edge": "commits"
+   },
+   {
+    "id": "action",
+    "kind": "environment",
+    "altitude": "E",
+    "label": "GitHub Action",
+    "edge": "starts"
+   },
+   {
+    "id": "runner",
+    "kind": "compute",
+    "altitude": "A0",
+    "label": "run 20261111-2359-storm-scale-03 on GitHub Actions",
+    "env": "R8 GitHub Actions, PrompTugal__News__Swarm__Runs",
+    "account": "github-actions:PrompTugal/PrompTugal__News__Swarm__Runs"
+   },
+   {
+    "id": "openrouter",
+    "kind": "provider",
+    "altitude": "M",
+    "label": "OpenRouter"
+   },
+   {
+    "id": "runner:warnings",
+    "kind": "compute",
+    "altitude": "A0",
+    "label": "task warnings"
+   },
+   {
+    "id": "runner:warnings/read",
+    "kind": "compute",
+    "altitude": "A0",
+    "label": "read weather/warnings.json"
+   },
+   {
+    "id": "data:warnings",
+    "kind": "dataset",
+    "altitude": "D",
+    "label": "weather/warnings.json",
+    "url": "https://storm-charles.promptugal.news/api/v1/2026-11-10-storm-charles/weather/warnings.json",
+    "bytes": 20252,
+    "sha256": "b6d1b206145b7e65",
+    "read_at": "2026-11-12T00:00:08Z"
+   },
+   {
+    "id": "runner:forecast",
+    "kind": "compute",
+    "altitude": "A0",
+    "label": "task forecast"
+   },
+   {
+    "id": "runner:forecast/read",
+    "kind": "compute",
+    "altitude": "A0",
+    "label": "read weather/forecast.json"
+   },
+   {
+    "id": "data:forecast",
+    "kind": "dataset",
+    "altitude": "D",
+    "label": "weather/forecast.json",
+    "url": "https://storm-charles.promptugal.news/api/v1/2026-11-10-storm-charles/weather/forecast.json",
+    "bytes": 71157,
+    "sha256": "a6190240597a59fa",
+    "read_at": "2026-11-12T00:00:08Z"
+   },
+   {
+    "id": "runner:stations",
+    "kind": "compute",
+    "altitude": "A0",
+    "label": "task stations"
+   },
+   {
+    "id": "runner:stations/read",
+    "kind": "compute",
+    "altitude": "A0",
+    "label": "read weather/stations.json"
+   },
+   {
+    "id": "data:stations",
+    "kind": "dataset",
+    "altitude": "D",
+    "label": "weather/stations.json",
+    "url": "https://storm-charles.promptugal.news/api/v1/2026-11-10-storm-charles/weather/stations.json",
+    "bytes": 81778,
+    "sha256": "428a364906b63478",
+    "read_at": "2026-11-12T00:00:08Z"
+   },
+   {
+    "id": "runner:tides",
+    "kind": "compute",
+    "altitude": "A0",
+    "label": "task tides"
+   },
+   {
+    "id": "runner:tides/read",
+    "kind": "compute",
+    "altitude": "A0",
+    "label": "read exposure/tides.json"
+   },
+   {
+    "id": "data:tides",
+    "kind": "dataset",
+    "altitude": "D",
+    "label": "exposure/tides.json",
+    "url": "https://storm-charles.promptugal.news/api/v1/2026-11-10-storm-charles/exposure/tides.json",
+    "bytes": 24836,
+    "sha256": "c99f98b06ca62105",
+    "read_at": "2026-11-12T00:00:08Z"
+   },
+   {
+    "id": "runner:transport",
+    "kind": "compute",
+    "altitude": "A0",
+    "label": "task transport"
+   },
+   {
+    "id": "runner:transport/read",
+    "kind": "compute",
+    "altitude": "A0",
+    "label": "read transport/services.json"
+   },
+   {
+    "id": "data:transport",
+    "kind": "dataset",
+    "altitude": "D",
+    "label": "transport/services.json",
+    "url": "https://storm-charles.promptugal.news/api/v1/2026-11-10-storm-charles/transport/services.json",
+    "bytes": 18396,
+    "sha256": "3803d7b7df49cce6",
+    "read_at": "2026-11-12T00:00:08Z"
+   },
+   {
+    "id": "runner:flights",
+    "kind": "compute",
+    "altitude": "A0",
+    "label": "task flights"
+   },
+   {
+    "id": "runner:flights/read",
+    "kind": "compute",
+    "altitude": "A0",
+    "label": "read transport/flights.json"
+   },
+   {
+    "id": "data:flights",
+    "kind": "dataset",
+    "altitude": "D",
+    "label": "transport/flights.json",
+    "url": "https://storm-charles.promptugal.news/api/v1/2026-11-10-storm-charles/transport/flights.json",
+    "bytes": 20702,
+    "sha256": "cdf4cb2e056c3559",
+    "read_at": "2026-11-12T00:00:08Z"
+   },
+   {
+    "id": "runner:tides/call:deepseek-v4-flash#1",
+    "kind": "llm-call",
+    "altitude": "A1",
+    "label": "deepseek-v4-flash #1",
+    "model": "deepseek/deepseek-v4-flash",
+    "key_fp": "sha256:6f9c257f417cc6fb",
+    "valid": true,
+    "tokens": 3469,
+    "cost_usd": 0.000618156,
+    "latency_ms": 15991
+   },
+   {
+    "id": "runner:tides/call:mistral-small-2603#1",
+    "kind": "llm-call",
+    "altitude": "A1",
+    "label": "mistral-small-2603 #1",
+    "model": "mistralai/mistral-small-2603",
+    "key_fp": "sha256:87a66c17e7d193bb",
+    "valid": true,
+    "tokens": 2963,
+    "cost_usd": 0.00009549441,
+    "latency_ms": 606
+   },
+   {
+    "id": "runner:warnings/call:deepseek-v4-flash#1",
+    "kind": "llm-call",
+    "altitude": "A1",
+    "label": "deepseek-v4-flash #1",
+    "model": "deepseek/deepseek-v4-flash",
+    "key_fp": "sha256:2deabd3c6de3f94a",
+    "valid": true,
+    "tokens": 2972,
+    "cost_usd": 0.0005056128,
+    "latency_ms": 5128
+   },
+   {
+    "id": "runner:warnings/call:mistral-small-2603#1",
+    "kind": "llm-call",
+    "altitude": "A1",
+    "label": "mistral-small-2603 #1",
+    "model": "mistralai/mistral-small-2603",
+    "key_fp": "sha256:b0020a2f941d06cc",
+    "valid": true,
+    "tokens": 2599,
+    "cost_usd": 0.00007494498,
+    "latency_ms": 709
+   },
+   {
+    "id": "runner:flights/call:deepseek-v4-flash#1",
+    "kind": "llm-call",
+    "altitude": "A1",
+    "label": "deepseek-v4-flash #1",
+    "model": "deepseek/deepseek-v4-flash",
+    "key_fp": "sha256:3176748b1853498e",
+    "valid": true,
+    "tokens": 2110,
+    "cost_usd": 0.00006454404,
+    "latency_ms": 2071
+   },
+   {
+    "id": "runner:flights/call:mistral-small-2603#1",
+    "kind": "llm-call",
+    "altitude": "A1",
+    "label": "mistral-small-2603 #1",
+    "model": "mistralai/mistral-small-2603",
+    "key_fp": "sha256:28ff54ba5a4030d5",
+    "valid": true,
+    "tokens": 2279,
+    "cost_usd": 0.00006393519,
+    "latency_ms": 868
+   },
+   {
+    "id": "runner:forecast/call:deepseek-v4-flash#1",
+    "kind": "llm-call",
+    "altitude": "A1",
+    "label": "deepseek-v4-flash #1",
+    "model": "deepseek/deepseek-v4-flash",
+    "key_fp": "sha256:56a5ff76df2373e5",
+    "valid": true,
+    "tokens": 3534,
+    "cost_usd": 0.000298723887,
+    "latency_ms": 34442
+   },
+   {
+    "id": "runner:forecast/call:mistral-small-2603#1",
+    "kind": "llm-call",
+    "altitude": "A1",
+    "label": "mistral-small-2603 #1",
+    "model": "mistralai/mistral-small-2603",
+    "key_fp": "sha256:62010dc4681f9ee9",
+    "valid": true,
+    "tokens": 2484,
+    "cost_usd": 0.00006439257,
+    "latency_ms": 711
+   },
+   {
+    "id": "runner:stations/call:deepseek-v4-flash#1",
+    "kind": "llm-call",
+    "altitude": "A1",
+    "label": "deepseek-v4-flash #1",
+    "model": "deepseek/deepseek-v4-flash",
+    "key_fp": "sha256:4df0e8d74e32eb83",
+    "valid": true,
+    "tokens": 2698,
+    "cost_usd": 0.0003228489,
+    "latency_ms": 1328
+   },
+   {
+    "id": "runner:stations/call:mistral-small-2603#1",
+    "kind": "llm-call",
+    "altitude": "A1",
+    "label": "mistral-small-2603 #1",
+    "model": "mistralai/mistral-small-2603",
+    "key_fp": "sha256:7f80fca30486461d",
+    "valid": true,
+    "tokens": 2993,
+    "cost_usd": 0.00006932574,
+    "latency_ms": 454
+   },
+   {
+    "id": "runner:transport/call:deepseek-v4-flash#1",
+    "kind": "llm-call",
+    "altitude": "A1",
+    "label": "deepseek-v4-flash #1",
+    "model": "deepseek/deepseek-v4-flash",
+    "key_fp": "sha256:18eac7e6b2554d90",
+    "valid": true,
+    "tokens": 2336,
+    "cost_usd": 0.00006536376,
+    "latency_ms": 1807
+   },
+   {
+    "id": "runner:transport/call:mistral-small-2603#1",
+    "kind": "llm-call",
+    "altitude": "A1",
+    "label": "mistral-small-2603 #1",
+    "model": "mistralai/mistral-small-2603",
+    "key_fp": "sha256:ce282a3ef3042def",
+    "valid": true,
+    "tokens": 2736,
+    "cost_usd": 0.00007282143,
+    "latency_ms": 855
+   },
+   {
+    "id": "consensus:warnings",
+    "kind": "compute",
+    "altitude": "A0",
+    "label": "consensus warnings"
+   },
+   {
+    "id": "consensus:forecast",
+    "kind": "compute",
+    "altitude": "A0",
+    "label": "consensus forecast"
+   },
+   {
+    "id": "consensus:stations",
+    "kind": "compute",
+    "altitude": "A0",
+    "label": "consensus stations"
+   },
+   {
+    "id": "consensus:tides",
+    "kind": "compute",
+    "altitude": "A0",
+    "label": "consensus tides"
+   },
+   {
+    "id": "consensus:transport",
+    "kind": "compute",
+    "altitude": "A0",
+    "label": "consensus transport"
+   },
+   {
+    "id": "consensus:flights",
+    "kind": "compute",
+    "altitude": "A0",
+    "label": "consensus flights"
+   }
+  ],
+  "edges": [
+   {
+    "from": "dinis",
+    "to": "requester",
+    "kind": "asks"
+   },
+   {
+    "from": "requester",
+    "to": "commit",
+    "kind": "commits"
+   },
+   {
+    "from": "commit",
+    "to": "action",
+    "kind": "starts"
+   },
+   {
+    "from": "action",
+    "to": "runner",
+    "kind": "runs"
+   },
+   {
+    "from": "runner",
+    "to": "runner:warnings",
+    "kind": "runs"
+   },
+   {
+    "from": "runner:warnings",
+    "to": "runner:warnings/read",
+    "kind": "runs"
+   },
+   {
+    "from": "runner:warnings/read",
+    "to": "data:warnings",
+    "kind": "reads"
+   },
+   {
+    "from": "runner",
+    "to": "runner:forecast",
+    "kind": "runs"
+   },
+   {
+    "from": "runner:forecast",
+    "to": "runner:forecast/read",
+    "kind": "runs"
+   },
+   {
+    "from": "runner:forecast/read",
+    "to": "data:forecast",
+    "kind": "reads"
+   },
+   {
+    "from": "runner",
+    "to": "runner:stations",
+    "kind": "runs"
+   },
+   {
+    "from": "runner:stations",
+    "to": "runner:stations/read",
+    "kind": "runs"
+   },
+   {
+    "from": "runner:stations/read",
+    "to": "data:stations",
+    "kind": "reads"
+   },
+   {
+    "from": "runner",
+    "to": "runner:tides",
+    "kind": "runs"
+   },
+   {
+    "from": "runner:tides",
+    "to": "runner:tides/read",
+    "kind": "runs"
+   },
+   {
+    "from": "runner:tides/read",
+    "to": "data:tides",
+    "kind": "reads"
+   },
+   {
+    "from": "runner",
+    "to": "runner:transport",
+    "kind": "runs"
+   },
+   {
+    "from": "runner:transport",
+    "to": "runner:transport/read",
+    "kind": "runs"
+   },
+   {
+    "from": "runner:transport/read",
+    "to": "data:transport",
+    "kind": "reads"
+   },
+   {
+    "from": "runner",
+    "to": "runner:flights",
+    "kind": "runs"
+   },
+   {
+    "from": "runner:flights",
+    "to": "runner:flights/read",
+    "kind": "runs"
+   },
+   {
+    "from": "runner:flights/read",
+    "to": "data:flights",
+    "kind": "reads"
+   },
+   {
+    "from": "runner:tides",
+    "to": "runner:tides/call:deepseek-v4-flash#1",
+    "kind": "calls"
+   },
+   {
+    "from": "runner:tides/call:deepseek-v4-flash#1",
+    "to": "openrouter",
+    "kind": "via"
+   },
+   {
+    "from": "runner:tides",
+    "to": "runner:tides/call:mistral-small-2603#1",
+    "kind": "calls"
+   },
+   {
+    "from": "runner:tides/call:mistral-small-2603#1",
+    "to": "openrouter",
+    "kind": "via"
+   },
+   {
+    "from": "runner:warnings",
+    "to": "runner:warnings/call:deepseek-v4-flash#1",
+    "kind": "calls"
+   },
+   {
+    "from": "runner:warnings/call:deepseek-v4-flash#1",
+    "to": "openrouter",
+    "kind": "via"
+   },
+   {
+    "from": "runner:warnings",
+    "to": "runner:warnings/call:mistral-small-2603#1",
+    "kind": "calls"
+   },
+   {
+    "from": "runner:warnings/call:mistral-small-2603#1",
+    "to": "openrouter",
+    "kind": "via"
+   },
+   {
+    "from": "runner:flights",
+    "to": "runner:flights/call:deepseek-v4-flash#1",
+    "kind": "calls"
+   },
+   {
+    "from": "runner:flights/call:deepseek-v4-flash#1",
+    "to": "openrouter",
+    "kind": "via"
+   },
+   {
+    "from": "runner:flights",
+    "to": "runner:flights/call:mistral-small-2603#1",
+    "kind": "calls"
+   },
+   {
+    "from": "runner:flights/call:mistral-small-2603#1",
+    "to": "openrouter",
+    "kind": "via"
+   },
+   {
+    "from": "runner:forecast",
+    "to": "runner:forecast/call:deepseek-v4-flash#1",
+    "kind": "calls"
+   },
+   {
+    "from": "runner:forecast/call:deepseek-v4-flash#1",
+    "to": "openrouter",
+    "kind": "via"
+   },
+   {
+    "from": "runner:forecast",
+    "to": "runner:forecast/call:mistral-small-2603#1",
+    "kind": "calls"
+   },
+   {
+    "from": "runner:forecast/call:mistral-small-2603#1",
+    "to": "openrouter",
+    "kind": "via"
+   },
+   {
+    "from": "runner:stations",
+    "to": "runner:stations/call:deepseek-v4-flash#1",
+    "kind": "calls"
+   },
+   {
+    "from": "runner:stations/call:deepseek-v4-flash#1",
+    "to": "openrouter",
+    "kind": "via"
+   },
+   {
+    "from": "runner:stations",
+    "to": "runner:stations/call:mistral-small-2603#1",
+    "kind": "calls"
+   },
+   {
+    "from": "runner:stations/call:mistral-small-2603#1",
+    "to": "openrouter",
+    "kind": "via"
+   },
+   {
+    "from": "runner:transport",
+    "to": "runner:transport/call:deepseek-v4-flash#1",
+    "kind": "calls"
+   },
+   {
+    "from": "runner:transport/call:deepseek-v4-flash#1",
+    "to": "openrouter",
+    "kind": "via"
+   },
+   {
+    "from": "runner:transport",
+    "to": "runner:transport/call:mistral-small-2603#1",
+    "kind": "calls"
+   },
+   {
+    "from": "runner:transport/call:mistral-small-2603#1",
+    "to": "openrouter",
+    "kind": "via"
+   },
+   {
+    "from": "runner",
+    "to": "consensus:warnings",
+    "kind": "runs"
+   },
+   {
+    "from": "runner",
+    "to": "consensus:forecast",
+    "kind": "runs"
+   },
+   {
+    "from": "runner",
+    "to": "consensus:stations",
+    "kind": "runs"
+   },
+   {
+    "from": "runner",
+    "to": "consensus:tides",
+    "kind": "runs"
+   },
+   {
+    "from": "runner",
+    "to": "consensus:transport",
+    "kind": "runs"
+   },
+   {
+    "from": "runner",
+    "to": "consensus:flights",
+    "kind": "runs"
+   }
+  ],
+  "timeline": [
+   {
+    "t": 0,
+    "unit": "runner",
+    "phase": "start"
+   },
+   {
+    "t": 1,
+    "unit": "runner:warnings/read",
+    "phase": "start"
+   },
+   {
+    "t": 2,
+    "unit": "runner:forecast/read",
+    "phase": "start"
+   },
+   {
+    "t": 3,
+    "unit": "runner:stations/read",
+    "phase": "start"
+   },
+   {
+    "t": 4,
+    "unit": "runner:tides/read",
+    "phase": "start"
+   },
+   {
+    "t": 6,
+    "unit": "runner:transport/read",
+    "phase": "start"
+   },
+   {
+    "t": 7,
+    "unit": "runner:flights/read",
+    "phase": "start"
+   },
+   {
+    "t": 152,
+    "unit": "runner:tides/read",
+    "phase": "end",
+    "ok": true,
+    "bytes": 24836
+   },
+   {
+    "t": 155,
+    "unit": "runner:tides/call:deepseek-v4-flash#1",
+    "phase": "start"
+   },
+   {
+    "t": 156,
+    "unit": "runner:tides/call:mistral-small-2603#1",
+    "phase": "start"
+   },
+   {
+    "t": 160,
+    "unit": "runner:warnings/read",
+    "phase": "end",
+    "ok": true,
+    "bytes": 20252
+   },
+   {
+    "t": 160,
+    "unit": "runner:warnings/call:deepseek-v4-flash#1",
+    "phase": "start"
+   },
+   {
+    "t": 162,
+    "unit": "runner:warnings/call:mistral-small-2603#1",
+    "phase": "start"
+   },
+   {
+    "t": 168,
+    "unit": "runner:flights/read",
+    "phase": "end",
+    "ok": true,
+    "bytes": 20702
+   },
+   {
+    "t": 169,
+    "unit": "runner:flights/call:deepseek-v4-flash#1",
+    "phase": "start"
+   },
+   {
+    "t": 170,
+    "unit": "runner:flights/call:mistral-small-2603#1",
+    "phase": "start"
+   },
+   {
+    "t": 173,
+    "unit": "runner:forecast/read",
+    "phase": "end",
+    "ok": true,
+    "bytes": 71157
+   },
+   {
+    "t": 173,
+    "unit": "runner:forecast/call:deepseek-v4-flash#1",
+    "phase": "start"
+   },
+   {
+    "t": 174,
+    "unit": "runner:forecast/call:mistral-small-2603#1",
+    "phase": "start"
+   },
+   {
+    "t": 177,
+    "unit": "runner:stations/read",
+    "phase": "end",
+    "ok": true,
+    "bytes": 81778
+   },
+   {
+    "t": 178,
+    "unit": "runner:stations/call:deepseek-v4-flash#1",
+    "phase": "start"
+   },
+   {
+    "t": 178,
+    "unit": "runner:stations/call:mistral-small-2603#1",
+    "phase": "start"
+   },
+   {
+    "t": 182,
+    "unit": "runner:transport/read",
+    "phase": "end",
+    "ok": true,
+    "bytes": 18396
+   },
+   {
+    "t": 183,
+    "unit": "runner:transport/call:deepseek-v4-flash#1",
+    "phase": "start"
+   },
+   {
+    "t": 183,
+    "unit": "runner:transport/call:mistral-small-2603#1",
+    "phase": "start"
+   },
+   {
+    "t": 866,
+    "unit": "runner:stations/call:mistral-small-2603#1",
+    "phase": "end",
+    "valid": true,
+    "cost_usd": 0.00006932574
+   },
+   {
+    "t": 921,
+    "unit": "runner:tides/call:mistral-small-2603#1",
+    "phase": "end",
+    "valid": true,
+    "cost_usd": 0.00009549441
+   },
+   {
+    "t": 1026,
+    "unit": "runner:warnings/call:mistral-small-2603#1",
+    "phase": "end",
+    "valid": true,
+    "cost_usd": 0.00007494498
+   },
+   {
+    "t": 1085,
+    "unit": "runner:forecast/call:mistral-small-2603#1",
+    "phase": "end",
+    "valid": true,
+    "cost_usd": 0.00006439257
+   },
+   {
+    "t": 1228,
+    "unit": "runner:flights/call:mistral-small-2603#1",
+    "phase": "end",
+    "valid": true,
+    "cost_usd": 0.00006393519
+   },
+   {
+    "t": 1286,
+    "unit": "runner:transport/call:mistral-small-2603#1",
+    "phase": "end",
+    "valid": true,
+    "cost_usd": 0.00007282143
+   },
+   {
+    "t": 1812,
+    "unit": "runner:stations/call:deepseek-v4-flash#1",
+    "phase": "end",
+    "valid": true,
+    "cost_usd": 0.0003228489
+   },
+   {
+    "t": 2226,
+    "unit": "runner:transport/call:deepseek-v4-flash#1",
+    "phase": "end",
+    "valid": true,
+    "cost_usd": 0.00006536376
+   },
+   {
+    "t": 2406,
+    "unit": "runner:flights/call:deepseek-v4-flash#1",
+    "phase": "end",
+    "valid": true,
+    "cost_usd": 0.00006454404
+   },
+   {
+    "t": 5432,
+    "unit": "runner:warnings/call:deepseek-v4-flash#1",
+    "phase": "end",
+    "valid": true,
+    "cost_usd": 0.0005056128
+   },
+   {
+    "t": 16304,
+    "unit": "runner:tides/call:deepseek-v4-flash#1",
+    "phase": "end",
+    "valid": true,
+    "cost_usd": 0.000618156
+   },
+   {
+    "t": 34792,
+    "unit": "runner:forecast/call:deepseek-v4-flash#1",
+    "phase": "end",
+    "valid": true,
+    "cost_usd": 0.000298723887
+   },
+   {
+    "t": 34793,
+    "unit": "consensus:warnings",
+    "phase": "start"
+   },
+   {
+    "t": 34793,
+    "unit": "consensus:warnings",
+    "phase": "end"
+   },
+   {
+    "t": 34793,
+    "unit": "consensus:forecast",
+    "phase": "start"
+   },
+   {
+    "t": 34793,
+    "unit": "consensus:forecast",
+    "phase": "end"
+   },
+   {
+    "t": 34793,
+    "unit": "consensus:stations",
+    "phase": "start"
+   },
+   {
+    "t": 34794,
+    "unit": "consensus:stations",
+    "phase": "end"
+   },
+   {
+    "t": 34794,
+    "unit": "consensus:tides",
+    "phase": "start"
+   },
+   {
+    "t": 34794,
+    "unit": "consensus:tides",
+    "phase": "end"
+   },
+   {
+    "t": 34794,
+    "unit": "consensus:transport",
+    "phase": "start"
+   },
+   {
+    "t": 34794,
+    "unit": "consensus:transport",
+    "phase": "end"
+   },
+   {
+    "t": 34794,
+    "unit": "consensus:flights",
+    "phase": "start"
+   },
+   {
+    "t": 34794,
+    "unit": "consensus:flights",
+    "phase": "end"
+   },
+   {
+    "t": 34794,
+    "unit": "runner",
+    "phase": "end"
+   }
+  ],
+  "id": "20261111-2359-storm-scale-03@dbcca7b099dc#43123984802.1",
+  "kind": "action",
+  "request": "20261111-2359-storm-scale-03",
+  "request_kind": "A1",
+  "requester": "swarm.1.fringe@PrompTugal.dinis",
+  "request_signed_by": "sha256:ff58f6f0f4de27c1",
+  "commit": "dbcca7b099dc4c6117fa6e77ed488b67c2e8f6bd",
+  "run_url": "https://github.com/PrompTugal/PrompTugal__News__Swarm__Runs/actions/runs/43123984802",
+  "flow": "20261111-2359-storm-scale-03@dbcca7b099dc#43123984802.1",
+  "fringe_sha": "dd671b9504dfd0332a7f4bbcaedd3999590bcece"
+ },
+ "by": {
+  "altitude": "A0",
+  "name": "run 20261111-2359-storm-scale-03@dbcca7b099dc#43123984802.1",
+  "fp": "sha256:cda9fbbf36131e92",
+  "pub": "MCowBQYDK2VwAyEApHePwIWmGbkHVXGX2YP4V/CrGvTrn48aOAlu+yK0bIs=",
+  "signed_at": "2026-11-12T00:00:43Z"
+ },
+ "sig": "N+/daALN3NGh/6ONWpC0azMKZ44D8KJLJC1oeooqwwBBlYBW7qL/qu7knj1GaCiJQuwUGWVgBVfvSnrNZuFSCw=="
+}

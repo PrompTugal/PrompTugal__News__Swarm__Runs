@@ -1,0 +1,123 @@
+{
+ "about": "Every run of a committed request, added up: one view of the swarm runs. Written by tools/summary.mjs (in the commit job, next to index.json). Metrics only; no prompt or answer text.",
+ "updated": "2026-11-12T00:01:07Z",
+ "totals": {
+  "requests": 15,
+  "requests_not_run": 0,
+  "workflow_runs": 3,
+  "jobs": 15,
+  "units": {
+   "A0": 294,
+   "A1": 216,
+   "A2": 24,
+   "A3": 18
+  },
+  "peak_units_in_one_job": 48,
+  "calls": 216,
+  "valid": 172,
+  "valid_pct": 79.6,
+  "tokens_in": 539722,
+  "tokens_out": 91248,
+  "openrouter_usd": 0.067991,
+  "potential_claude_usd": {
+   "claude-haiku-5.5": 0.099596,
+   "claude-sonnet-5.5": 1.991924,
+   "claude-opus-5.5": 3.983848
+  },
+  "wall_ms_sum": 372837,
+  "span_ms": 619738,
+  "first_start": "2026-11-11T23:50:34Z",
+  "last_end": "2026-11-12T00:00:53Z",
+  "peak_jobs_at_once": 12,
+  "peak_at": "2026-11-12T00:00:12Z",
+  "models": [
+   "deepseek/deepseek-v4-flash",
+   "meta-llama/llama-3.3-70b-instruct",
+   "mistralai/mistral-small-2603",
+   "qwen/qwen3.7-flash"
+  ]
+ },
+ "by_workflow_run": [
+  {
+   "run_url": "https://github.com/PrompTugal/PrompTugal__News__Swarm__Runs/actions/runs/43122829324",
+   "run_id": "43122829324",
+   "commit": "15bf6730a3de22ba6645a08ca1cd1ffc2bf225a9",
+   "requests": [
+    "20261111-2350-storm-a1-fix"
+   ],
+   "jobs": 1,
+   "calls": 18,
+   "valid": 15,
+   "openrouter_usd": 0.007683,
+   "span_ms": 21655,
+   "first_start": "2026-11-11T23:50:34Z",
+   "peak_jobs_at_once": 1
+  },
+  {
+   "run_url": "https://github.com/PrompTugal/PrompTugal__News__Swarm__Runs/actions/runs/43123364781",
+   "run_id": "43123364781",
+   "commit": "44d3ad9d243909279afa28eac484295c3db419d0",
+   "requests": [
+    "20261111-2344-storm-a1",
+    "20261111-2344-storm-a2"
+   ],
+   "jobs": 2,
+   "calls": 54,
+   "valid": 35,
+   "openrouter_usd": 0.021445,
+   "span_ms": 50852,
+   "first_start": "2026-11-11T23:54:55Z",
+   "peak_jobs_at_once": 2
+  },
+  {
+   "run_url": "https://github.com/PrompTugal/PrompTugal__News__Swarm__Runs/actions/runs/43123984802",
+   "run_id": "43123984802",
+   "commit": "dbcca7b099dc4c6117fa6e77ed488b67c2e8f6bd",
+   "requests": [
+    "20261111-2359-storm-scale-01",
+    "20261111-2359-storm-scale-02",
+    "20261111-2359-storm-scale-03",
+    "20261111-2359-storm-scale-04",
+    "20261111-2359-storm-scale-05",
+    "20261111-2359-storm-scale-06",
+    "20261111-2359-storm-scale-07",
+    "20261111-2359-storm-scale-08",
+    "20261111-2359-storm-scale-09",
+    "20261111-2359-storm-scale-10",
+    "20261111-2359-storm-scale-11",
+    "20261111-2359-storm-scale-12"
+   ],
+   "jobs": 12,
+   "calls": 144,
+   "valid": 122,
+   "openrouter_usd": 0.038863,
+   "span_ms": 46738,
+   "first_start": "2026-11-12T00:00:07Z",
+   "peak_jobs_at_once": 12
+  }
+ ],
+ "by_requester": {
+  "swarm.1.fringe@PrompTugal.dinis": {
+   "requests": 15,
+   "jobs": 15,
+   "units": {
+    "A0": 294,
+    "A1": 216,
+    "A2": 24,
+    "A3": 18
+   },
+   "calls": 216,
+   "valid": 172,
+   "tokens_in": 539722,
+   "tokens_out": 91248,
+   "openrouter_usd": 0.067991,
+   "potential_claude_usd": {
+    "claude-haiku-5.5": 0.099596,
+    "claude-sonnet-5.5": 1.991924,
+    "claude-opus-5.5": 3.983848
+   },
+   "wall_ms_sum": 372837
+  }
+ },
+ "not_measured": "GitHub queue time before a job starts; the requester agent's own Claude tokens."
+}
